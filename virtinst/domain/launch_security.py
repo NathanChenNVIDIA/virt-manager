@@ -27,6 +27,9 @@ class DomainLaunchSecurity(XMLBuilder):
     mrOwnerConfig = XMLProperty("./mrOwnerConfig")
     quoteGenerationService = XMLProperty("./quoteGenerationService", is_bool=True)
     quoteGenerationSocket = XMLProperty("./quoteGenerationService/@path")
+    measurementAlgo = XMLProperty("./measurement-algo")
+    personalizationValue = XMLProperty("./personalization-value")
+    measurementLog = XMLProperty("./@measurement-log", is_yesno=True)
 
     def _set_defaults_sev(self, guest):
         if not guest.os.is_q35() or not guest.is_uefi():
@@ -50,6 +53,10 @@ class DomainLaunchSecurity(XMLBuilder):
         if not guest.os.is_q35() or not guest.is_uefi():
             raise RuntimeError(_("TDX launch security requires a Q35 UEFI machine"))
 
+    def _set_defaults_cca(self, guest):
+        if not guest.os.is_arm():
+            raise RuntimeError(_("CCA launch security requires an ARM machine"))
+
     def set_defaults(self, guest):
         if self.type == "sev":
             return self._set_defaults_sev(guest)
@@ -57,3 +64,5 @@ class DomainLaunchSecurity(XMLBuilder):
             return self._set_defaults_sev_snp(guest)
         elif self.type == "tdx":
             return self._set_defaults_tdx(guest)
+        elif self.type == "cca":
+            return self._set_defaults_cca(guest)

@@ -5327,6 +5327,9 @@ class ParserLaunchSecurity(VirtCLIParser):
         cls.add_arg("mrOwnerConfig", "mrOwnerConfig")
         cls.add_arg("quoteGenerationService", "quoteGenerationService", is_onoff=True)
         cls.add_arg("quoteGenerationSocket", "quoteGenerationSocket")
+        cls.add_arg("measurementAlgo", "measurement-algo")
+        cls.add_arg("personalizationValue", "personalization-value")
+        cls.add_arg("measurementLog", "measurement-log", is_onoff=True)
 
 
 ###########################

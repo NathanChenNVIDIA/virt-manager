@@ -1909,6 +1909,21 @@ c.add_invalid(
 )
 
 
+#############################
+# ARM Launch security tests #
+#############################
+
+c = vinst.add_category(
+    "kvm-aarch64-launch-security",
+    "--disk none --noautoconsole --osinfo generic --connect %(URI-KVM-AARCH64)s",
+)
+c.add_compare(
+    "--boot uefi --machine virt --launchSecurity type=cca,measurementAlgo=sha256,personalizationValue=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==,measurementLog=on",
+    "aarch64-launch-security-cca",
+    prerun_check="11.9.0",
+)
+
+
 ######################
 # LXC specific tests #
 ######################

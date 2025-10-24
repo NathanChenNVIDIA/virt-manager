@@ -5263,6 +5263,7 @@ class ParserHostdev(VirtCLIParser):
         "driver.name": "driver_name",
         "rom.bar": "rom_bar",
         "driver.iommufd": "driver_iommufd",
+        "acpi.nodeset": "acpi_nodeset",
     }
 
     def set_name_cb(self, inst, val, virtarg):
@@ -5293,6 +5294,7 @@ class ParserHostdev(VirtCLIParser):
         cls.add_arg("driver.name", "driver_name")
         cls.add_arg("driver.iommufd", "driver_iommufd")
         cls.add_arg("rom.bar", "rom_bar", is_onoff=True)
+        cls.add_arg("acpi.nodeset", "acpi_nodeset", can_comma=True)
         cls.add_arg("source.startupPolicy", "startup_policy")
 
 

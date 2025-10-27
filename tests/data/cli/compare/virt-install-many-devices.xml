@@ -924,7 +924,7 @@
         <vendor id="0x062a"/>
         <product id="0x0001"/>
       </source>
-      <driver name="vfio"/>
+      <driver name="vfio" iommufd="yes"/>
     </hostdev>
     <hostdev mode="subsystem" type="usb" managed="yes">
       <source>

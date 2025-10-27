@@ -1035,6 +1035,19 @@ c.add_compare(
 )
 
 
+###########################
+# Nested Smmuv3 and vCMDQ #
+###########################
+c = vinst.add_category(
+    "kvm-aarch64-nested-smmuv3-cmdqv",
+    "--disk none --noautoconsole --osinfo generic --connect %(URI-KVM-AARCH64)s"
+)
+
+c.add_compare("--controller type=pci,index=1,model=pcie-expander-bus --controller type=pci,index=2,model=pcie-root-port,address.domain=0,address.bus=1,address.devno=0,address.function=0,address.type=pci --iommu model=smmuv3,driver.pciBus=0,driver.accel=on,driver.ats=on,driver.ril=on,driver.pasid=on,driver.oas=48,driver.cmdqv=on --iommu model=smmuv3,driver.pciBus=1,driver.accel=on,driver.ats=on,driver.ril=on,driver.pasid=on,driver.oas=48,driver.cmdqv=on --hostdev 0:0:4.0,type=pci,address.bus=2,address.devno=0,address.function=0,address.type=pci",
+              "aarch64-nested-smmuv3-cmdqv",
+              prerun_check="11.8.0",
+)
+
 ########################
 # Storage provisioning #
 ########################

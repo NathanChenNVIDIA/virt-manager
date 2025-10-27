@@ -4548,6 +4548,13 @@ class ParserIommu(VirtCLIParser):
         cls.add_arg("driver.caching_mode", "caching_mode", is_onoff=True)
         cls.add_arg("driver.eim", "eim", is_onoff=True)
         cls.add_arg("driver.iotlb", "iotlb", is_onoff=True)
+        cls.add_arg("driver.pciBus", "pciBus")
+        cls.add_arg("driver.accel", "accel", is_onoff=True)
+        cls.add_arg("driver.ats", "ats", is_onoff=True)
+        cls.add_arg("driver.ril", "ril", is_onoff=True)
+        cls.add_arg("driver.pasid", "pasid", is_onoff=True)
+        cls.add_arg("driver.oas", "oas")
+        cls.add_arg("driver.cmdqv", "cmdqv", is_onoff=True)
 
 
 #######################

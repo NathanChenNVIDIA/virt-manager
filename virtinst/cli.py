@@ -4800,6 +4800,7 @@ class ParserMemdev(VirtCLIParser):
         cls.add_arg("target.requested", "target.requested")
         cls.add_arg("target.readonly", "target.readonly", is_onoff=True)
         cls.add_arg("target.address_base", "target.address_base")
+        cls.add_arg("target.pci_dev", "target.pciDev")
         cls.add_arg("source.pagesize", "source.pagesize")
         cls.add_arg("source.path", "source.path")
         cls.add_arg("source.nodemask", "source.nodemask", can_comma=True)

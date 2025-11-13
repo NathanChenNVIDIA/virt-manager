@@ -995,6 +995,8 @@ c.add_compare(
     "target_size=512,target.requested=524288,target.address_base=0x180000000 "
     "--memdev virtio-pmem,source.path=/tmp/virtio_pmem,"
     "target_size=512,target.address_base=0x1a0000000 "
+    "--memdev egm,source.path=/dev/egm0,"
+    "target_size=512,target_node=0,target.pci_dev=ua-hostdev0 "
     "",
     "memory-hotplug",
     precompare_check="5.3.0",

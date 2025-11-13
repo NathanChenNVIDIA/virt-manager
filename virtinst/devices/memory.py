@@ -21,6 +21,7 @@ class _DeviceMemoryTarget(XMLBuilder):
     current = XMLProperty("./current", is_int=True)
     address_base = XMLProperty("./address/@base")
     dynamicMemslots = XMLProperty("./@dynamicMemslots", is_yesno=True)
+    pciDev = XMLProperty("./pciDev")
 
 
 class _DeviceMemorySource(XMLBuilder):
@@ -38,7 +39,8 @@ class DeviceMemory(Device):
 
     MODEL_DIMM = "dimm"
     MODEL_NVDIMM = "nvdimm"
-    models = [MODEL_DIMM, MODEL_NVDIMM]
+    MODEL_EGM = "egm"
+    models = [MODEL_DIMM, MODEL_NVDIMM, MODEL_EGM]
 
     ACCESS_SHARED = "shared"
     ACCESS_PRIVATE = "private"

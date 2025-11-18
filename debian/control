@@ -1,0 +1,97 @@
+Source: virt-manager
+Section: admin
+Priority: optional
+Maintainer: NVIDIA BaseOS Team <dgx-dev@nvidia.com>
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               dh-sequence-python3,
+               gettext,
+               meson,
+               python3,
+               python3-docutils,
+               cpio <!nocheck>,
+               xorriso <!nocheck>,
+               gir1.2-libosinfo-1.0 <!nocheck>,
+               gir1.2-libvirt-glib-1.0 <!nocheck>,
+               libglib2.0-bin <!nocheck>,
+               libvirt-daemon <!nocheck>,
+               locales-all <!nocheck>,
+               python3-argcomplete <!nocheck>,
+               python3-gi (>= 3.31.3~) <!nocheck>,
+               python3-libvirt <!nocheck>,
+               python3-libxml2 <!nocheck>,
+               python3-pytest <!nocheck>,
+               python3-requests <!nocheck>,
+Standards-Version: 4.7.2
+Homepage: https://virt-manager.org/
+Rules-Requires-Root: no
+
+Package: virtinst
+Architecture: all
+Depends: ${python3:Depends},
+         ${misc:Depends},
+         python3-libvirt (>= 0.4.6),
+         python3-libxml2,
+         python3-requests,
+         osinfo-db,
+         e2fsprogs,
+         xorriso,
+         gir1.2-libosinfo-1.0,
+         python3-gi (>= 3.31.3~)
+Recommends:
+         libvirt-clients,
+         qemu-utils,
+Suggests:
+         python3-argcomplete,
+         virt-viewer,
+Breaks:
+         virtinst (<< 1:5.0.0-2~),
+Replaces:
+         virtinst (<< 1:5.0.0-2~),
+Provides:
+         virt-clone (= ${binary:Version}),
+         virt-xml (= ${binary:Version}),
+Description: Programs to create and clone virtual machines
+ Virtinst is a set of command line tools to create virtual machines
+ using libvirt:
+ .
+  virt-install: Create new virtual machines
+  virt-clone: Clone existing virtual machines
+  virt-xml: Edit existing virtual machines
+ .
+ This package also contains the virtinst Python library used by these tools.
+
+Package: virt-manager
+Architecture: all
+Depends: ${python3:Depends},
+         ${misc:Depends},
+         virtinst (= ${binary:Version}),
+         gir1.2-gtk-3.0 (>= 3.10),
+         gir1.2-gtk-vnc-2.0,
+         gir1.2-gtksource-4,
+         gir1.2-libosinfo-1.0,
+         gir1.2-libvirt-glib-1.0,
+         gir1.2-vte-2.91,
+         python3-gi (>= 3.31.3~),
+         python3-gi-cairo,
+         python3-libvirt (>= 0.7.1),
+Recommends:
+         gir1.2-ayatanaappindicator3-0.1 | gir1.2-appindicator3-0.1,
+         gir1.2-spiceclientglib-2.0,
+         gir1.2-spiceclientgtk-3.0,
+         libvirt-daemon-system (>= 1.2.7),
+Suggests:
+         gir1.2-secret-1,
+         gnome-keyring,
+         python3-guestfs,
+         ssh-askpass,
+         virt-viewer,
+Description: Desktop application for managing virtual machines
+ virt-manager is a desktop application for managing virtual machines
+ through libvirt. It primarily targets KVM VMs, but also manages Xen
+ and LXC (Linux Containers).
+ .
+ It presents a summary view of running domains, their live performance
+ and resource utilization statistics. Wizards enable the creation of
+ new domains, and configuration and adjustment of a domain's resource
+ allocation and virtual hardware.

@@ -1922,6 +1922,11 @@ c.add_compare(
     "aarch64-launch-security-cca",
     prerun_check="11.9.0",
 )
+c.add_compare(
+    "--boot uefi --machine virt --launchSecurity type=cca,sharedMec=on",
+    "aarch64-launch-security-cca-shared-mec",
+    prerun_check="11.9.0",
+)
 
 
 ######################

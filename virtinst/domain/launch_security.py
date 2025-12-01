@@ -30,6 +30,7 @@ class DomainLaunchSecurity(XMLBuilder):
     measurementAlgo = XMLProperty("./measurement-algo")
     personalizationValue = XMLProperty("./personalization-value")
     measurementLog = XMLProperty("./@measurement-log", is_yesno=True)
+    sharedMec = XMLProperty("./@shared-mec", is_yesno=True)
 
     def _set_defaults_sev(self, guest):
         if not guest.os.is_q35() or not guest.is_uefi():

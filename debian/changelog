@@ -1,3 +1,10 @@
+virt-manager (5.1.0+nvidia-unstable2-1) noble; urgency=medium
+
+  * Fix CCA launchSecurity property name mappings
+  * Add shared-mec support for CCA guests
+
+ -- Ian May <ianm@nvidia.com>  Wed, 03 Dec 2025 15:23:06 -0800
+
 virt-manager (5.1.0+nvidia-unstable1-1) unstable; urgency=medium
 
   * Initial Debian packaging for unstable branch with 

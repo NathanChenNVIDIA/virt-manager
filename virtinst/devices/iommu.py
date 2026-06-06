@@ -33,3 +33,4 @@ class DeviceIommu(Device):
     ril = XMLProperty("./driver/@ril",is_onoff=True)
     pasid = XMLProperty("./driver/@pasid",is_onoff=True)
     oas = XMLProperty("./driver/@oas")
+    cmdqv = XMLProperty("./driver/@cmdqv",is_onoff=True)
